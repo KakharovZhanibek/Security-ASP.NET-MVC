@@ -1,0 +1,48 @@
+﻿@using Auth.Models
+@model User
+@{
+    ViewBag.Title = "Login";
+}
+
+@*<form>
+        <table>
+                     <tr>
+                         <td><label for="name">Login</label></td>
+                         <td><input style="margin:10px " type="text" name="login" value="" /><br /></td>
+                     </tr>
+                     <tr>
+                         <td><label for="password">Password</label></td>
+                         <td> <input style="margin:10px " type="password" name="password" value="" /></td>
+                     </tr>
+                 </table>
+                 <input type="submit" name="send" value="Войти" />
+    </form>*@
+<table>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.UserId)
+                @Html.LabelFor(model => model.UserId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.Login)
+                @Html.LabelFor(model => model.Login)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.Password)
+                @Html.LabelFor(model => model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="SignIn" value="Войти" />
+            </td>
+        </tr>
+    }
+</table>
